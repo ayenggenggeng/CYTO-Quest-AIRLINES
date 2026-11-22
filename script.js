@@ -133,10 +133,20 @@ function submitActivity() {
     3: "Filament Connection"
 };
 
-sendCompletionRecord(
-    document.getElementById("passenger-name").value.trim(),
-    stationNames[stationNumber]
-)
+function sendCompletionRecord(name, station, score) {
+    fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+            "Content-Type": "text/plain"
+        },
+        body: JSON.stringify({
+            name: name,
+            station: station,
+            score: score
+        })
+    }
+
     feedback.textContent =
         "You got " + score + " out of 5 correct! Great job, Explorer! Stamp " +
         stationNumber + " collected!";
