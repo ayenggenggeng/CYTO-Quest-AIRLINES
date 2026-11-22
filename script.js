@@ -82,9 +82,10 @@ function submitActivity() {
 
         markStampEarned(4);
         sendCompletionRecord(
+    sendCompletionRecord(
     document.getElementById("passenger-name").value.trim(),
-    "Motility Memoirs"
-);
+    stationNames[stationNumber]
+)
         feedback.textContent =
             "Reflection submitted! Thank you for sharing your thoughts, Explorer! Stamp 4 collected!";
         return;
